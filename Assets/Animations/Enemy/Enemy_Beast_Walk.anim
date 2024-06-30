@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Enemy_Walk_Beast
+  m_Name: Enemy_Beast_Walk
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -22,13 +22,13 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: 1482291351, guid: bfd14db1290ed184388ea4eb8659f7ff, type: 3}
-    - time: 0
-      value: {fileID: 54756868, guid: bfd14db1290ed184388ea4eb8659f7ff, type: 3}
     - time: 0.16666667
-      value: {fileID: 1613363962, guid: bfd14db1290ed184388ea4eb8659f7ff, type: 3}
+      value: {fileID: 54756868, guid: bfd14db1290ed184388ea4eb8659f7ff, type: 3}
     - time: 0.33333334
-      value: {fileID: -2014340769, guid: bfd14db1290ed184388ea4eb8659f7ff, type: 3}
+      value: {fileID: 1482291351, guid: bfd14db1290ed184388ea4eb8659f7ff, type: 3}
     - time: 0.5
+      value: {fileID: -2014340769, guid: bfd14db1290ed184388ea4eb8659f7ff, type: 3}
+    - time: 0.6666667
       value: {fileID: 1482291351, guid: bfd14db1290ed184388ea4eb8659f7ff, type: 3}
     attribute: m_Sprite
     path: 
@@ -54,7 +54,7 @@ AnimationClip:
     pptrCurveMapping:
     - {fileID: 1482291351, guid: bfd14db1290ed184388ea4eb8659f7ff, type: 3}
     - {fileID: 54756868, guid: bfd14db1290ed184388ea4eb8659f7ff, type: 3}
-    - {fileID: 1613363962, guid: bfd14db1290ed184388ea4eb8659f7ff, type: 3}
+    - {fileID: 1482291351, guid: bfd14db1290ed184388ea4eb8659f7ff, type: 3}
     - {fileID: -2014340769, guid: bfd14db1290ed184388ea4eb8659f7ff, type: 3}
     - {fileID: 1482291351, guid: bfd14db1290ed184388ea4eb8659f7ff, type: 3}
   m_AnimationClipSettings:
@@ -62,7 +62,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.51666665
+    m_StopTime: 0.68333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
