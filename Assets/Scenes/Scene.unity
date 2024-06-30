@@ -593,7 +593,7 @@ Transform:
   m_GameObject: {fileID: 93974004}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.3572049, y: -0.76480293, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4452,6 +4452,7 @@ GameObject:
   - component: {fileID: 383873443}
   - component: {fileID: 383873444}
   - component: {fileID: 383873445}
+  - component: {fileID: 383873446}
   m_Layer: 6
   m_Name: Enemy_Mushroom (1)
   m_TagString: Enemy
@@ -4468,7 +4469,7 @@ Transform:
   m_GameObject: {fileID: 383873437}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.05, y: 7.42, z: 0.036264922}
+  m_LocalPosition: {x: 0.44, y: 4.38, z: 0.036264922}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4655,6 +4656,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: []
+--- !u!114 &383873446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 383873437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 994a9a66fcb607344ad7f9f221c26680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
 --- !u!1001 &400934415
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4861,6 +4875,8 @@ GameObject:
   - component: {fileID: 448549906}
   - component: {fileID: 448549907}
   - component: {fileID: 448549908}
+  - component: {fileID: 448549909}
+  - component: {fileID: 448549910}
   m_Layer: 6
   m_Name: Enemy_Bamboo
   m_TagString: Enemy
@@ -5012,7 +5028,7 @@ Transform:
   m_GameObject: {fileID: 448549900}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.08, y: 8.65, z: 0.036264922}
+  m_LocalPosition: {x: 12.8, y: -0.13, z: 0.036264922}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5030,12 +5046,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcb70b62e31e4f599261ad352f0081b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initState: Wander
+  initState: Patrol
   states:
-  - Id: Wander
+  - Id: Patrol
     Actions:
-    - {fileID: 448549907}
-    Transitions: []
+    - {fileID: 448549909}
+    Transitions:
+    - Decision: {fileID: 448549910}
+      TrueState: Chase
+      FalseState: 
+  - Id: Chase
+    Actions: []
+    Transitions:
+    - Decision: {fileID: 448549910}
+      TrueState: 
+      FalseState: Patrol
 --- !u!114 &448549907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5064,8 +5089,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points:
-  - {x: -0.75476265, y: -1.0063515, z: 0}
-  - {x: 1.1797066, y: 0.20929337, z: 1}
+  - {x: -1.2320328, y: -1.3432484, z: 0}
+  - {x: 1.3481522, y: -1.3682947, z: 1}
+  - {x: 1.4653282, y: 1.1594143, z: 1}
+  - {x: -1.0791225, y: 1.192894, z: 1}
+--- !u!114 &448549909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448549900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 994a9a66fcb607344ad7f9f221c26680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1.5
+--- !u!114 &448549910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448549900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b716b8d4a1369b46bdbe383a0443a13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectRange: 4
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1001 &453377555
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7422,6 +7478,7 @@ GameObject:
   - component: {fileID: 1037417265}
   - component: {fileID: 1037417266}
   - component: {fileID: 1037417267}
+  - component: {fileID: 1037417268}
   m_Layer: 6
   m_Name: Enemy_Bamboo (1)
   m_TagString: Enemy
@@ -7625,6 +7682,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: []
+--- !u!114 &1037417268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1037417259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 994a9a66fcb607344ad7f9f221c26680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
 --- !u!1001 &1059957707
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35789,6 +35859,8 @@ GameObject:
   - component: {fileID: 1574000387}
   - component: {fileID: 1574000388}
   - component: {fileID: 1574000389}
+  - component: {fileID: 1574000390}
+  - component: {fileID: 1574000391}
   m_Layer: 6
   m_Name: Enemy_Reptile
   m_TagString: Enemy
@@ -35940,7 +36012,7 @@ Transform:
   m_GameObject: {fileID: 1574000381}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 18.46, y: 4.09, z: 0.036264922}
+  m_LocalPosition: {x: 16.56, y: 4.32, z: 0.036264922}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -35963,7 +36035,16 @@ MonoBehaviour:
   - Id: Wander
     Actions:
     - {fileID: 1574000388}
-    Transitions: []
+    Transitions:
+    - Decision: {fileID: 1574000391}
+      TrueState: Chase
+      FalseState: Chase
+  - Id: Chase
+    Actions: []
+    Transitions:
+    - Decision: {fileID: 1574000391}
+      TrueState: Wander
+      FalseState: Wander
 --- !u!114 &1574000388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35994,6 +36075,35 @@ MonoBehaviour:
   points:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
+--- !u!114 &1574000390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574000381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 994a9a66fcb607344ad7f9f221c26680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+--- !u!114 &1574000391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574000381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b716b8d4a1369b46bdbe383a0443a13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectRange: 4
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1 &1611951154
 GameObject:
   m_ObjectHideFlags: 0
@@ -36010,6 +36120,7 @@ GameObject:
   - component: {fileID: 1611951160}
   - component: {fileID: 1611951161}
   - component: {fileID: 1611951162}
+  - component: {fileID: 1611951163}
   m_Layer: 6
   m_Name: Enemy_Reptile (1)
   m_TagString: Enemy
@@ -36213,6 +36324,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: []
+--- !u!114 &1611951163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1611951154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 994a9a66fcb607344ad7f9f221c26680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
 --- !u!1001 &1627262237
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36295,6 +36419,7 @@ GameObject:
   - component: {fileID: 1644411833}
   - component: {fileID: 1644411834}
   - component: {fileID: 1644411835}
+  - component: {fileID: 1644411836}
   m_Layer: 6
   m_Name: Enemy_Mushroom
   m_TagString: Enemy
@@ -36446,7 +36571,7 @@ Transform:
   m_GameObject: {fileID: 1644411827}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.56, y: 6.03, z: 0.036264922}
+  m_LocalPosition: {x: 8.36, y: 2.63, z: 0.036264922}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -36498,6 +36623,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: []
+--- !u!114 &1644411836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1644411827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 994a9a66fcb607344ad7f9f221c26680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
 --- !u!1 &1660671462
 GameObject:
   m_ObjectHideFlags: 0
@@ -37517,6 +37655,7 @@ GameObject:
   - component: {fileID: 1784832553}
   - component: {fileID: 1784832554}
   - component: {fileID: 1784832555}
+  - component: {fileID: 1784832556}
   m_Layer: 6
   m_Name: Enemy_Beast (1)
   m_TagString: Enemy
@@ -37720,6 +37859,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: []
+--- !u!114 &1784832556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784832547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 994a9a66fcb607344ad7f9f221c26680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
 --- !u!1 &1805686779
 GameObject:
   m_ObjectHideFlags: 0
@@ -37908,6 +38060,7 @@ GameObject:
   - component: {fileID: 1849548603}
   - component: {fileID: 1849548604}
   - component: {fileID: 1849548605}
+  - component: {fileID: 1849548606}
   m_Layer: 6
   m_Name: Enemy_Beast
   m_TagString: Enemy
@@ -38059,7 +38212,7 @@ Transform:
   m_GameObject: {fileID: 1849548597}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 20.13, y: 6.83, z: 0.036264922}
+  m_LocalPosition: {x: 18.57, y: 6.65, z: 0.036264922}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -38111,6 +38264,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: []
+--- !u!114 &1849548606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1849548597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 994a9a66fcb607344ad7f9f221c26680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
 --- !u!1 &1878223929
 GameObject:
   m_ObjectHideFlags: 0

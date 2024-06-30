@@ -14,6 +14,7 @@ public class Waypoint : MonoBehaviour
     private bool gameStarted;
     private void Start()
     {
+        gameStarted = true;
         EntityPosition = transform.position;
     }
 
@@ -23,5 +24,10 @@ public class Waypoint : MonoBehaviour
         {
             EntityPosition = transform.position;
         }   
+    }
+
+    public Vector3 GetPosition(int pointIndex)
+    {
+        return EntityPosition + points[pointIndex];
     }
 }

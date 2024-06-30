@@ -10,6 +10,7 @@ using System;
     public void UpdateState(EnemyBrain enemyBrain)
     {
         ExecuteAction();
+        ExecuteTransitions(enemyBrain);
     }
     
     private void ExecuteAction()

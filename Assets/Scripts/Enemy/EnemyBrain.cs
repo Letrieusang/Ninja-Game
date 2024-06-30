@@ -7,7 +7,8 @@ public class EnemyBrain : MonoBehaviour
         [SerializeField] private string initState;
         [SerializeField] private FSMState[] states;
         public FSMState currentState { get; set; }
-
+        public Transform Player { get; set; }
+        
         private void Start()
         {
                 ChangeState(initState);
@@ -20,12 +21,8 @@ public class EnemyBrain : MonoBehaviour
         public void ChangeState(string newStateId)
         {
                 FSMState newState = GetState(newStateId);
-                if (newState != null)
-                {
-                        currentState = newState;
-                }
-
-                return;
+                if (newState == null) return;
+                currentState = newState;
         }
 
         private FSMState GetState(string newStateId)
