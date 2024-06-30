@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: b68f272db98d7994cbb1631d4623af5d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - stats: {instanceID: 0}
+  - healthBar: {instanceID: 0}
+  - manaBar: {instanceID: 0}
+  - epxBar: {instanceID: 0}
+  - levelTmp: {instanceID: 0}
+  - healthTmp: {instanceID: 0}
+  - manaTmp: {instanceID: 0}
+  - expTmp: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
