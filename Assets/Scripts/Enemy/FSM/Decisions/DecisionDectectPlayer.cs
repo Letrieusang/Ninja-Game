@@ -12,7 +12,6 @@ public class DecisionDectectPlayer : FSMDecision
 
     private void Awake()
     {
-        Debug.Log($"{playerMask.value}");
         enemyBrain = GetComponent<EnemyBrain>();
     }
 
