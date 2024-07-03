@@ -31,7 +31,6 @@ public class DecisionDectectPlayer : FSMDecision
         }
 
         enemyBrain.Player = null; 
-        Debug.Log("Player Not Detected");
         return false;
     }
 
