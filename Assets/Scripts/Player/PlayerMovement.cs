@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb2D;
     private Vector2 moveDirection;
 
+    public Vector2 MoveDirection => moveDirection;
+
     private void Awake()
     {
         player = GetComponent<Player>();
@@ -62,4 +64,6 @@ public class PlayerMovement : MonoBehaviour
     {
         actions.Disable();
     }
+    
+    
 }

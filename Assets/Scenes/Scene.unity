@@ -665,6 +665,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1da8edb5a9585d489394769fea857e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InitialWeapon: {fileID: 11400000, guid: f15a545762c7bb246a6e98dde3672292, type: 2}
+  attackPosition:
+  - {fileID: 613170238}
+  - {fileID: 475936442}
+  - {fileID: 1166169025}
+  - {fileID: 1262680422}
 --- !u!1 &95940002
 GameObject:
   m_ObjectHideFlags: 0

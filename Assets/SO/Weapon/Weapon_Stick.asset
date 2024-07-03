@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4a3f6d61d2e41a42af29010fe2f93bb, type: 3}
+  m_Name: Weapon_Stick
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 21300000, guid: 56595f215131da545b3a48c44342c432, type: 3}
+  type: 0
+  Damage: 2
+  ProjectilePrefab: {fileID: 4814128453561883908, guid: c7c5e81414bcfb749ae56e9b2cf8d8a9, type: 3}
+  RequiredMana: 2
